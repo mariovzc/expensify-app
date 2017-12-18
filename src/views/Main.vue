@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import Dashboard from '@/dashboard'
-import Expenses from '@/expenses'
+import Dashboard from '@/Dashboard'
+import Expenses from '@/Expense'
 export default {
   name: 'Main',
   data () {

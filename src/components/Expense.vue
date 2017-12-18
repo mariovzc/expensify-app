@@ -1,14 +1,14 @@
 <template>
   <div>
-    <header-app title="Dashboard"></header-app>
+    <header-app title="Expenses"></header-app>
   </div>
 </template>
 
 <script>
-import headerApp from '@/Header'
+import HeaderApp from '@/Header'
 export default {
   components: {
-    headerApp
+    HeaderApp
   }
 }
 </script>
