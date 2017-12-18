@@ -7,6 +7,9 @@ function load (component) {
   // '@' is aliased to src/components
   return () => import(`@/${component}.vue`)
 }
+function view (component) {
+  return () => import(`../src/views/${component}.vue`)
+}
 
 export default new VueRouter({
   /*
@@ -25,8 +28,8 @@ export default new VueRouter({
   scrollBehavior: () => ({ y: 0 }),
 
   routes: [
-    { path: '/', component: load('Hello') },
-
+    { path: '/', component: view('Dashboard') },
+    { path: '/expenses', component: view('Expenses') },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]
