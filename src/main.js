@@ -14,8 +14,12 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
 
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
+Vue.use(MintUI)
 
 if (__THEME === 'mat') {
   require('quasar-extras/roboto-font')
