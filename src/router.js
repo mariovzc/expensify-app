@@ -28,8 +28,7 @@ export default new VueRouter({
   scrollBehavior: () => ({ y: 0 }),
 
   routes: [
-    { path: '/', component: view('Dashboard') },
-    { path: '/expenses', component: view('Expenses') },
+    { path: '/', component: view('Main') },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]
