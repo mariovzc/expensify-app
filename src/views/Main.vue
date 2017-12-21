@@ -41,7 +41,7 @@ export default {
 <style>
 .mint-tab-item{
   background-color: #403E53;
-  color: #65BEE7;
+  color: #BCBDC2;
 }
 .mint-tabbar > .mint-tab-item.is-selected{
   background-color: #5C5A70 !important;
