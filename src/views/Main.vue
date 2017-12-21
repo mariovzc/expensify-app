@@ -10,11 +10,12 @@
     </mt-tab-container>
     <mt-tabbar v-model="selected">
       <mt-tab-item id="dashboard">
-        <img slot="icon" src="../assets/chart.svg">
+        <i class="material-icons" slot="icon">insert_chart</i>
+        <img  src="">
         Dashboard
       </mt-tab-item>
       <mt-tab-item id="expenses">
-        <img slot="icon" src="../assets/expenses.svg">
+        <i class="material-icons" slot="icon">monetization_on</i>
         Expenses
       </mt-tab-item>
     </mt-tabbar>

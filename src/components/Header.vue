@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 header {
+  background-color: transparent !important;
   height: 3.7em !important;
   .mint-header-title{
     font-weight: 500;
