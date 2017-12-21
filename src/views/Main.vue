@@ -10,12 +10,11 @@
     </mt-tab-container>
     <mt-tabbar v-model="selected">
       <mt-tab-item id="dashboard">
-        <i class="material-icons" slot="icon">insert_chart</i>
-        <img  src="">
+        <i class="material-icons custom-icon" slot="icon">insert_chart</i>
         Dashboard
       </mt-tab-item>
       <mt-tab-item id="expenses">
-        <i class="material-icons" slot="icon">monetization_on</i>
+        <i class="material-icons custom-icon" slot="icon">monetization_on</i>
         Expenses
       </mt-tab-item>
     </mt-tabbar>
@@ -40,5 +39,19 @@ export default {
 </script>
 
 <style>
-
+.mint-tab-item{
+  background-color: #403E53;
+  color: #65BEE7;
+}
+.mint-tabbar > .mint-tab-item.is-selected{
+  background-color: #5C5A70 !important;
+  color: whitesmoke;
+}
+.custom-icon{
+  font-size: 1.6rem;
+}
+.mint-tab-item-label{
+  font-weight: bold;
+  font-size: .7rem;
+}
 </style>
