@@ -1,10 +1,16 @@
 import { Bar } from 'vue-chartjs'
+import { Indicator } from 'mint-ui'
 
 export default {
   extends: Bar,
   data () {
     return {
       options: {
+        legend: {
+          labels: {
+            fontColor: '#fff'
+          }
+        },
         responsive: true,
         maintainAspectRatio: false,
         animation: {
@@ -17,10 +23,18 @@ export default {
         },
         scales: {
           xAxes: [{
-            stacked: true
+            ticks: {
+              fontColor: '#fff'
+            },
+            stacked: true,
+            stepSize: 1
           }],
           yAxes: [{
-            stacked: true
+            ticks: {
+              fontColor: '#fff'
+            },
+            stacked: true,
+            stepSize: 1
           }]
         }
       }
@@ -30,10 +44,16 @@ export default {
     seeddata () {
       fetch('https://mvzexpenses.herokuapp.com/chart/transaction')
         .then(response => response.json())
-        .then(json => this.renderChart(json.data))
+        .then((json) => {
+          Indicator.close()
+          this.renderChart(json.data, this.options)
+        })
     }
   },
   mounted () {
     this.seeddata()
+  },
+  beforeMount () {
+    Indicator.open()
   }
 }

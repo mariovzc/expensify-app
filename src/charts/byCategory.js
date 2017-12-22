@@ -1,18 +1,21 @@
-import { Doughnut } from 'vue-chartjs'
+import { Pie } from 'vue-chartjs'
+import { Indicator } from 'mint-ui'
 
 export default {
-  extends: Doughnut,
+  extends: Pie,
   data () {
     return {
       options: {
+        legend: {
+          labels: {
+            fontColor: '#fff'
+          }
+        },
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         animation: {
           animateScale: true,
           animateRotate: true
-        },
-        pieceLabel: {
-          fontColor: '#FFF'
         },
         tooltips: {
           enabled: true,
@@ -42,10 +45,14 @@ export default {
         labels: data.labels
       }
       this.renderChart(d, this.options)
+      Indicator.close()
     }
   },
   mounted () {
     this.seeddata()
+  },
+  beforeMount () {
+    Indicator.open()
   }
 }
 
