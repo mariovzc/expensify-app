@@ -41,7 +41,7 @@ export default {
 <style>
 .mint-tabbar{
   position: fixed;
-  box-shadow: 10px 10px 10px #BCBDC2
+  box-shadow: 0px 1px 1px #BCBDC2
 }
 .mint-tab-item{
   background-color: #403E53;
