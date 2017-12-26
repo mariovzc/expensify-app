@@ -3,13 +3,15 @@
     <header-app title="Dashboard"></header-app>
     <div class="container">
       <div class="chart-container">
-        <h2></h2>
+        <h2>Cateroria</h2>
         <byCategoryChart/>
       </div>
       <div class="chart-container">
+        <h2>Ultimos 6 meses</h2>
         <last6MonthsChart/>
       </div>
       <div class="chart-container">
+        <h2>Acumulado mensual</h2>
         <accumulated/>
       </div>
     </div>
@@ -39,6 +41,11 @@ export default {
    margin-bottom: 6rem;
    .chart-container{
      margin-top: 10px;
+     h2{
+       font-size: 1.6em;
+       text-align: center;
+       color: #FFF;
+     }
    }
  }
 
