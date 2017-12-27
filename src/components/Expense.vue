@@ -2,7 +2,7 @@
   <div>
     <header-app title="Gastos" action="true" @save="save" />
     <div class="container">
-      <form v-bind:submit.prevent="save" >
+      <form id="form">
         <mt-field label="Fecha" :disableClear=true type="date" v-model="date"></mt-field> <br>
         <mt-field label="Concepto" v-model="concept"></mt-field> <br>
         <mt-field label="Cantidad" rows="10" type="number"  v-model="amount"></mt-field>
@@ -24,7 +24,8 @@
 <script>
 import HeaderApp from '@/Header'
 import options from '../store/defaults.js'
-import { MessageBox } from 'mint-ui'
+import { MessageBox, Indicator } from 'mint-ui'
+import axios from 'axios'
 
 export default {
   components: {
@@ -42,10 +43,16 @@ export default {
   },
   methods: {
     save () {
-      if (this.concept === '') {
-
+      if (this.concept === '' || this.date === '' || this.transaction_type_id === '' || this.category_id === '' || this.amount === '') {
+        this.message('Error', 'Todos los campos deben ser rellenados')
       }
-      console.log('ok')
+      else {
+        Indicator.open({
+          text: 'Creando...',
+          spinnerType: 'fading-circle'
+        })
+        this.createExpense()
+      }
     },
     message (title, message) {
       MessageBox({
@@ -53,6 +60,31 @@ export default {
         message: message,
         confirmButtonText: 'Ok'
       })
+    },
+    createExpense () {
+      axios({
+        method: 'post',
+        url: 'https://mvzexpenses.herokuapp.com/api/v1/expenses',
+        data: {
+          concept: this.concept,
+          date: this.date,
+          transaction_type_id: this.transaction_type_id,
+          amount: this.amount,
+          category_id: this.category_id
+        }
+      })
+        .then((response) => {
+          Indicator.close()
+          this.message('Alerta!', 'Gasto creado')
+          this.concept = ''
+          this.date = ''
+          this.transaction_type_id = ''
+          this.category_id = ''
+          this.amount = ''
+        })
+        .catch(() => {
+          this.message('Error!', 'No se pudo crear el gasto')
+        })
     }
   }
 }
