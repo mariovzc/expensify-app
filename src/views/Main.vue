@@ -15,7 +15,7 @@
       </mt-tab-item>
       <mt-tab-item id="expenses">
         <i class="material-icons custom-icon" slot="icon">monetization_on</i>
-        Expenses
+        Gastos
       </mt-tab-item>
     </mt-tabbar>
   </div>
